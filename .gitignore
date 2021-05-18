@@ -17,6 +17,10 @@
 .env.development.local
 .env.test.local
 .env.production.local
+/Stock
+
+# audio
+/src/audio
 
 npm-debug.log*
 yarn-debug.log*
