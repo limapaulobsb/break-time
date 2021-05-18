@@ -22,6 +22,10 @@ header {
   font-size: 36px;
 }
 
+header a {
+  height: 32px;
+}
+
 #logo {
   display: flex;
   align-items: flex-end;

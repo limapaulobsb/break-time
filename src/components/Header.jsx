@@ -12,7 +12,13 @@ class Header extends React.Component {
           <span className='golden'>Break</span>
           <span>Time!</span>
         </div>
-        <img src={githubMark} alt='GitHub' />
+        <a
+          href='https://github.com/limapaulobsb/break-time'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <img src={githubMark} alt='GitHub' />
+        </a>
       </header>
     );
   }
