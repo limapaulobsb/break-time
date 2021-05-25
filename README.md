@@ -1,8 +1,12 @@
 # Projeto Break Time
 
+*Data de criação: 13/05/2021*
+
+*Última atualização: 25/05/2021*
+
 <p align="center"><img width="33%" src="https://raw.githubusercontent.com/limapaulobsb/break-time/main/src/images/Screenshot.png" alt="Project Screenshot"></p>
 
-<p align="center"><a href="http://phlima.pro/projects/break-time" target="_blank">www.phlima.pro/projects/break-time</a></p>
+<p align="center"><a href="http://phlima.pro/projects/break-time">www.phlima.pro/projects/break-time</a></p>
 
 ## Contexto
 
@@ -43,7 +47,7 @@ Os arquivos de audio não estão disponíveis pois possuem direitos autorais res
 
 1. Crie uma pasta *audio* dentro de *src*
 
-2. Coloque alguns arquivos de audio
+2. Coloque alguns arquivos de audio (Não sabe onde encontrar? Tente [aqui](https://mixkit.co/free-stock-music/ambient/).)
 
 3. Edite as seguintes linhas no arquivo *AudioPlayer.jsx*
 
