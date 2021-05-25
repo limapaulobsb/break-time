@@ -4,11 +4,10 @@ import Header from './components/Header';
 import Timer from './components/Timer';
 import AudioPlayer from './components/AudioPlayer';
 import Modal from './components/Modal';
-
-import coffeeCup from './images/coffeeCup.jpeg';
-
-// import coffeeImg from './images/coffee.jpeg';
 import './App.css';
+
+import coffeeCup from './images/coffeeCup.jpg';
+
 
 class App extends React.Component {
   constructor() {
@@ -17,11 +16,13 @@ class App extends React.Component {
     this.state = {
       showModal: false,
     };
+
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
-  toggleModal = () => {
+  toggleModal() {
     this.setState((prevState) => ({ showModal: !prevState.showModal }));
-  };
+  }
 
   render() {
     return (
@@ -31,7 +32,6 @@ class App extends React.Component {
           <Timer showModal={this.toggleModal} />
           <AudioPlayer />
         </main>
-        <div className='radial-gradient' />
         <div id='coffee-ctn'>
           <img src={coffeeCup} alt='Coffee Cup' />
         </div>

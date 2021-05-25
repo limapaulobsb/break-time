@@ -2,6 +2,7 @@
 // https://css-tricks.com/building-progress-ring-quickly/
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ProgressRing extends React.Component {
   constructor(props) {
@@ -37,5 +38,11 @@ class ProgressRing extends React.Component {
     );
   }
 }
+
+ProgressRing.propTypes = {
+  radius: PropTypes.number,
+  stroke: PropTypes.number,
+  progress: PropTypes.number,
+}.isRequired;
 
 export default ProgressRing;

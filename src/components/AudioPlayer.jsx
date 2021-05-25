@@ -35,9 +35,14 @@ class AudioPlayer extends React.Component {
       audio[1].loop = true;
       audio[1].volume = 0.5;
     }
+
+    this.togglePlay = this.togglePlay.bind(this);
+    this.stopAudio = this.stopAudio.bind(this);
+    this.previousAudio = this.previousAudio.bind(this);
+    this.nextAudio = this.nextAudio.bind(this);
   }
 
-  togglePlay = () => {
+  togglePlay() {
     const { isPlaying, index } = this.state;
     if (isPlaying) {
       this.audio[index][1].pause();
@@ -45,18 +50,18 @@ class AudioPlayer extends React.Component {
       this.audio[index][1].play();
     }
     this.setState({ isPlaying: !isPlaying });
-  };
+  }
 
-  stopAudio = () => {
+  stopAudio() {
     const { isPlaying, index } = this.state;
     if (isPlaying) {
       this.audio[index][1].pause();
       this.audio[index][1].currentTime = 0;
       this.setState({ isPlaying: false });
     }
-  };
+  }
 
-  previousAudio = () => {
+  previousAudio() {
     let { isPlaying, index } = this.state;
     if (isPlaying) {
       this.audio[index][1].pause();
@@ -71,9 +76,9 @@ class AudioPlayer extends React.Component {
     if (isPlaying) {
       this.audio[index][1].play();
     }
-  };
+  }
 
-  nextAudio = () => {
+  nextAudio() {
     let { isPlaying, index } = this.state;
     if (isPlaying) {
       this.audio[index][1].pause();
@@ -88,7 +93,7 @@ class AudioPlayer extends React.Component {
     if (isPlaying) {
       this.audio[index][1].play();
     }
-  };
+  }
 
   render() {
     const { isPlaying, index } = this.state;

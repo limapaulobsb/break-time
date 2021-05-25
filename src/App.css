@@ -32,7 +32,7 @@ header a {
 }
 
 .golden {
-  color: goldenrod;
+  color: darkgoldenrod;
 }
 
 main,
@@ -75,8 +75,8 @@ svg circle:nth-child(2) {
   display: table-row;
 }
 
-.num-pad,
-.control-pad {
+.numpad,
+.controlpad {
   display: table-cell;
   width: 54px;
   height: 54px;
@@ -86,15 +86,16 @@ svg circle:nth-child(2) {
   transition: opacity 0.25s;
 }
 
-.num-pad {
+.numpad {
   border: 2px solid black;
   border-radius: 10px;
   background-color: black;
-  background-image: linear-gradient(
-    to bottom right,
-    rgba(255, 255, 255, 0.25),
-    rgba(255, 255, 255, 0)
-  );
+  background-image:
+    linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0)
+    );
   font-size: 24px;
 }
 
@@ -170,23 +171,13 @@ button {
   color: black;
 }
 
-#coffee-ctn,
-.radial-gradient {
+#coffee-ctn {
   position: fixed;
   bottom: 0;
   right: 0;
-  z-index: -2;
-  width: 450px;
-  height: 450px;
-}
-
-.radial-gradient {
   z-index: -1;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(255, 202, 0, 1) 70%
-  );
+  width: 420px;
+  height: 420px;
 }
 
 @media screen and (max-width: 900px) {
@@ -194,8 +185,7 @@ button {
     font-size: 30px;
   }
 
-  .coffee-ctn,
-  .radial-gradient {
+  #coffee-ctn {
     display: none;
   }
 }

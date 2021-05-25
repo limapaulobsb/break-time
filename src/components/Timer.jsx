@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ProgressRing from './ProgressRing';
 import NumPad from './NumPad';
@@ -14,9 +15,15 @@ class Timer extends React.Component {
       seconds: 0,
       secondsLeft: 0,
     };
+
+    this.refreshTimer = this.refreshTimer.bind(this);
+    this.startTimer = this.startTimer.bind(this);
+    this.pauseTimer = this.pauseTimer.bind(this);
+    this.resetTimer = this.resetTimer.bind(this);
+    this.setTimer = this.setTimer.bind(this);
   }
 
-  refreshTimer = () => {
+  refreshTimer() {
     let { minutesLeft, secondsLeft } = this.state;
 
     if (secondsLeft > 0) {
@@ -26,31 +33,31 @@ class Timer extends React.Component {
       minutesLeft--;
     }
     this.setState({ minutesLeft, secondsLeft });
-  };
+  }
 
-  startTimer = () => {
+  startTimer() {
     if (this.state.minutesLeft !== 0 || this.state.secondsLeft !== 0) {
       this.setState({ isRunning: true });
       this.timerInterval = setInterval(() => {
         this.refreshTimer();
       }, 1000);
     }
-  };
+  }
 
-  stopTimer = () => {
+  pauseTimer() {
     this.setState({ isRunning: false });
     clearInterval(this.timerInterval);
-  };
+  }
 
-  resetHandler = () => {
-    this.stopTimer();
+  resetTimer() {
+    this.pauseTimer();
     this.setState((prevState) => ({
       minutesLeft: prevState.minutes,
       secondsLeft: prevState.seconds,
     }));
-  };
+  }
 
-  setTimer = (param) => {
+  setTimer(param) {
     const { isRunning } = this.state;
 
     if (!isRunning) {
@@ -80,7 +87,7 @@ class Timer extends React.Component {
         secondsLeft: seconds,
       });
     }
-  };
+  }
 
   componentDidUpdate(_prevProps, prevState) {
     if (
@@ -88,7 +95,7 @@ class Timer extends React.Component {
       prevState.minutesLeft === 0 &&
       prevState.secondsLeft === 1
     ) {
-      this.stopTimer();
+      this.pauseTimer();
       this.props.showModal();
     }
   }
@@ -116,16 +123,20 @@ class Timer extends React.Component {
             progress={progress ? progress : 0}
           />
         </div>
-        <NumPad isRunning={isRunning ? true : false} onClick={this.setTimer} />
+        <NumPad isRunning={isRunning ? true : false} setTimer={this.setTimer} />
         <div id='buttons-ctn'>
-          <button onClick={isRunning ? this.stopTimer : this.startTimer}>
-            {isRunning ? 'Stop' : 'Start'}
+          <button onClick={isRunning ? this.pauseTimer : this.startTimer}>
+            {isRunning ? 'Pause' : 'Start'}
           </button>
-          <button onClick={this.resetHandler}>Reset</button>
+          <button onClick={this.resetTimer}>Reset</button>
         </div>
       </div>
     );
   }
 }
+
+Timer.propTypes = {
+  showModal: PropTypes.func,
+}.isRequired;
 
 export default Timer;
